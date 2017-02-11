@@ -1,10 +1,10 @@
 extends layout
 
 block content
-   h1= title
+   h1.text-center= title
    br
    br
-   div#body40
+   div.body40.center-block
       form(name="stdForm", enctype="multipart/form-data" action="/import")
         .form-group
           label(for="cat1") Categoria
@@ -47,8 +47,4 @@ block content
         br
         button.btn.btn-primary(type="submit") Import
     
-
-var items = maincat
-    each item in items
-            li= item.catname
-            
+   
