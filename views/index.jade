@@ -1,0 +1,54 @@
+extends layout
+
+block content
+   h1= title
+   br
+   br
+   div#body40
+      form(name="stdForm", enctype="multipart/form-data" action="/import")
+        .form-group
+          label(for="cat1") Categoria
+          select.form-control(id="cat1", name="cat1")
+            - var cat1s = maincat1
+               each cat1 in cat1s
+                  option(value = cat1, label = cat1)
+        br
+        .form-group
+          label(for="cat2") Categoria
+          select.form-control(id="cat1", name="cat1")
+            - var cat1s = maincat1
+               each cat1 in cat1s
+                  option(value = cat1, label = cat1)
+        br
+        .form-group
+          label(for="cat3") Categoria
+          select.form-control(id="cat1", name="cat1")
+            - var cat1s = maincat1
+               each cat1 in cat1s
+                  option(value = cat1, label = cat1)
+        br
+        .form-group
+          label(for="cat4") Categoria
+          select.form-control(id="cat1", name="cat1")
+            - var cat1s = maincat1
+               each cat1 in cat1s
+                  option(value = cat1, label = cat1)
+        br
+        br
+        .form-group
+          label(for="image") Arquivo
+          input.form-control(type="file", ngf-select ng-model="bCtrl.book.picFile" name="file" ngf-pattern="'image/*'"
+           ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" 
+           ngf-resize="{width: 100, height: 100}" ngf-model-invalid="errorFile")
+          i(ng-show="stdForm.file.$error.required") *required
+          i(ng-show="stdForm.file.$error.maxSize") File too large {{errorFile.size / 1000000|number:1}}MB: max 2M
+          br
+
+        br
+        button.btn.btn-primary(type="submit") Import
+    
+
+var items = maincat
+    each item in items
+            li= item.catname
+            
